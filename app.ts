@@ -26,11 +26,11 @@ const server = fastify();
 
 server.all('*', async (request, reply) => {
     switch (request.method.toLowerCase()) {
-        case 'get': logger.info(`${colors.green(`[${request.method}]`)} ${request.url} ${JSON.stringify(request.headers)} ${JSON.stringify(request.body)}`); break;
-        case 'post': logger.info(`${colors.blue(`[${request.method}]`)} ${request.url} ${JSON.stringify(request.headers)} ${JSON.stringify(request.body)}`); break;
-        case 'put': logger.info(`${colors.yellow(`[${request.method}]`)} ${request.url} ${JSON.stringify(request.headers)} ${JSON.stringify(request.body)}`); break;
-        case 'delete': logger.info(`${colors.red(`[${request.method}]`)} ${request.url} ${JSON.stringify(request.headers)} ${JSON.stringify(request.body)}`); break;
-        default: logger.info(`${colors.white(`[${request.method}]`)} ${request.url} ${JSON.stringify(request.headers)} ${JSON.stringify(request.body)}`); break;
+        case 'get': logger.info(`${colors.green(`[${request.method}]`)}  \t${request.url} ${JSON.stringify(request.headers)} ${JSON.stringify(request.body)}`); break;
+        case 'post': logger.info(`${colors.blue(`[${request.method}]`)}  \t${request.url} ${JSON.stringify(request.headers)} ${JSON.stringify(request.body)}`); break;
+        case 'put': logger.info(`${colors.yellow(`[${request.method}]`)}  \t${request.url} ${JSON.stringify(request.headers)} ${JSON.stringify(request.body)}`); break;
+        case 'delete': logger.info(`${colors.red(`[${request.method}]`)}  \t${request.url} ${JSON.stringify(request.headers)} ${JSON.stringify(request.body)}`); break;
+        default: logger.info(`${colors.white(`[${request.method}]`)}  \t${request.url} ${JSON.stringify(request.headers)} ${JSON.stringify(request.body)}`); break;
     }
     return reply.code(200).send();
 });
