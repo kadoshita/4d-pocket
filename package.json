@@ -1,10 +1,20 @@
 {
   "name": "4d-pocket",
-  "version": "1.0.0",
-  "main": "app.ts",
+  "version": "1.0.1",
+  "main": "app.js",
   "repository": "https://github.com/kadoshita/4d-pocket.git",
   "author": "kadoshita <sublimer.me@gmail.com>",
   "license": "MIT",
+  "bin": "app.js",
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node app.js"
+  },
+  "files": [
+    "app.js"
+  ],
   "devDependencies": {
     "@types/node": "^14.14.22",
     "ts-node": "^9.1.1",

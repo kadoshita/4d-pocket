@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import fastify from 'fastify';
 import log4js from 'log4js';
 import colors from 'colors';
@@ -35,7 +37,10 @@ server.all('*', async (request, reply) => {
     return reply.code(200).send();
 });
 
-server.listen(3000, '127.0.0.1', (err, address) => {
+const { argv } = process;
+const port: number = (argv[2] === '-p' && argv[3]) ? parseInt(argv[3], 10) : 3000;
+
+server.listen(port, '127.0.0.1', (err, address) => {
     if (err) {
         logger.error(err);
         process.exit(1);
