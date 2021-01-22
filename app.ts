@@ -3,6 +3,17 @@
 import fastify from 'fastify';
 import log4js from 'log4js';
 import colors from 'colors';
+import commander from 'commander';
+const packageJson = require('./package.json');
+
+commander.name(packageJson.name);
+commander.version(packageJson.version);
+commander.option('-p, --port [port]', 'port', '3000');
+const { argv } = process;
+commander.parse(argv);
+
+const options = commander.opts();
+const port: number = parseInt(options.port, 10) || 3000;
 
 log4js.configure({
     appenders: {
@@ -36,9 +47,6 @@ server.all('*', async (request, reply) => {
     }
     return reply.code(200).send();
 });
-
-const { argv } = process;
-const port: number = (argv[2] === '-p' && argv[3]) ? parseInt(argv[3], 10) : 3000;
 
 server.listen(port, '127.0.0.1', (err, address) => {
     if (err) {
