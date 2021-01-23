@@ -20,6 +20,9 @@
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
   },
+  "keywords": [
+    "cli"
+  ],
   "dependencies": {
     "colors": "^1.4.0",
     "commander": "^7.0.0",
